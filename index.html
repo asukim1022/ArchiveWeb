@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<script src="jquery.min.js"></script>
+	<style>
+		html,body,.wrapper,.drawer,iframe { height:100%; width:100%;  margin:0; }
+		.wrapper { background: yellow }
+		.drawer { position:fixed; top:100%; transition: top 1s; }
+		ul { margin:0 }
+		button { position: absolute; right: 100px; top:20px; }
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<ul>
+			<li onclick="openDrawer('a.html')">a</li>
+			<li onclick="openDrawer('b.html')">b</li>
+			<li onclick="openDrawer('c.html')">c</li>
+			<li onclick="openDrawer('d.html')">d</li>
+		</ul>
+	</div>
+	<div class="drawer">
+		<iframe></iframe>
+		<button onclick="closeDrawer()">닫기</button>
+	</div>
+	
+	<script>
+		function openDrawer(src) {
+			$(".drawer iframe").attr("src",src);
+			$(".drawer").css({top:0});
+		}
+		
+		function closeDrawer() {
+			$(".drawer").css({top:'100%'});
+		}
+	</script>
+</body>
+</html>
